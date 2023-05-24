@@ -1,0 +1,16 @@
+body,
+h1,
+div,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e8ffff;
+}
+
+@import "./loader.scss";
+@import "./navbar.scss";
+@import "./news.scss";
+@import "./newsItem.scss";

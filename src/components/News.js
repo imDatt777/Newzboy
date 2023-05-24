@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { NewsItem } from "./NewsItem";
-import "../styles/news.scss";
 import Loader from "./Loader";
 import InfiniteScroll from "react-infinite-scroll-component";
+
+// Importing Fallback assets
+import defaultFallback from "../images/default.jpg";
+import businessFallback from "../images/business.jpg";
+import entertainmentFallback from "../images/entertainment.jpg";
+import healthFallback from "../images/health.jpeg";
+import scienceFallback from "../images/science.webp";
+import sportsFallback from "../images/sports.jpeg";
+import techFallback from "../images/tech.webp";
 
 export const News = (props) => {
   const { newsCount, country, category, setProgress } = props;
@@ -42,6 +50,31 @@ export const News = (props) => {
     setTotalArticles(data.totalArticles);
   };
 
+  const fallbackImages = (category) => {
+    switch (category) {
+      case "business":
+        return businessFallback;
+
+      case "entertainment":
+        return entertainmentFallback;
+
+      case "health":
+        return healthFallback;
+
+      case "science":
+        return scienceFallback;
+
+      case "sports":
+        return sportsFallback;
+
+      case "technology":
+        return techFallback;
+
+      default:
+        return defaultFallback;
+    }
+  };
+
   return (
     <div className="home-page-container">
       {category ? (
@@ -64,13 +97,14 @@ export const News = (props) => {
               key={idx}
               title={article.title ? article.title.slice(0, 60) : ""}
               desc={
-                article.description ? article.description.slice(0, 200) : ""
+                article.description ? article.description.slice(0, 150) : ""
               }
               imgUrl={article.urlToImage}
               newsUrl={article.url}
               date={article.publishedAt}
               author={article.author}
               src={article.source.name}
+              fallback={fallbackImages(category)}
             />
           ))}
         </div>

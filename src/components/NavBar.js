@@ -1,16 +1,19 @@
-import React from "react";
-import '../styles/navbar.scss';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const [visible, setVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setVisible(!visible);
+  };
+
   return (
     <div className="main-nav-container">
-      <div className="nav-title-container">
-        <Link className="title-text" to="/">
-          NewzBoy
-        </Link>
+      <div className="nav-title-container" onClick={toggleSidebar}>
+        <h1 className={"title-text"}>NewzBoy</h1>
       </div>
-      <div className="links-container">
+      <div className={`links-container ${visible ? "none" : ""}`}>
         <ul className="list">
           <li className="link-item">
             <Link className="link-text" to="/">

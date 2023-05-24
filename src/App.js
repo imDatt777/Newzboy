@@ -5,6 +5,9 @@ import { News } from "./components/News";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
+/* Importing styles */
+import "./styles/base.scss";
+
 function App() {
   const [progress, setProgress] = useState(0);
   return (

@@ -1,6 +1,6 @@
 .home-page-container {
   margin-top: 50px;
-  padding: 20px 150px;
+  padding: 20px 50px;
   display: flex;
   flex-direction: column;
 
@@ -13,5 +13,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-page-container {
+    padding: 20px 70px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-page-container {
+    padding: 20px 150px;
   }
 }

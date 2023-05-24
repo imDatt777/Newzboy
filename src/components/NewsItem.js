@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/newsItem.scss";
 
 const dateFormatter = (date) => {
   const d = new Date(date);
@@ -7,11 +6,11 @@ const dateFormatter = (date) => {
 };
 
 export const NewsItem = (props) => {
-  const { title, desc, imgUrl, newsUrl, date, author, src } = props;
+  const { title, desc, imgUrl, newsUrl, date, author, src, fallback } = props;
   return (
     <div className="news-item-container">
       <div className="image-box">
-        <img src={imgUrl} alt="News" />
+        <img src={imgUrl ? imgUrl : fallback} alt="News" />
       </div>
       <p className="src-tag">{src}</p>
       <div className="news-text">
